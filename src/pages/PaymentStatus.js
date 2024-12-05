@@ -1,45 +1,45 @@
 import React, { useEffect, useState } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import apiClient from "../api/apiClient";
 
 const PaymentStatus = () => {
-  const [status, setStatus] = useState("Processing...");
-  const [error, setError] = useState(null);
+  const [status, setStatus] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
+
+  const refNo = searchParams.get("refNo");
 
   useEffect(() => {
     const fetchPaymentStatus = async () => {
       try {
-        const paymentKey = searchParams.get("uniqueKey");
-        if (!paymentKey) {
-          setError("Payment unique key is missing.");
-          return;
-        }
-
-        const response = await apiClient.get(`/payment/status?uniqueKey=${paymentKey}`);
+        const response = await apiClient.get(`/subscription/status?refNo=${refNo}`);
         if (response.data.success) {
-          setStatus(response.data.message || "Payment completed successfully.");
+          setStatus(response.data.data.payment_status);
         } else {
-          setError(response.data.message || "Failed to verify payment.");
+          setStatus("Failed to fetch payment status.");
         }
       } catch (err) {
-        setError("An error occurred while checking payment status.");
+        console.error("Error fetching payment status:", err);
+        setStatus("Error while fetching payment status.");
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchPaymentStatus();
-  }, [searchParams]);
+    if (refNo) {
+      fetchPaymentStatus();
+    } else {
+      setStatus("Invalid payment reference.");
+      setLoading(false);
+    }
+  }, [refNo]);
 
-  const handleBackToDashboard = () => {
-    navigate("/dashboard");
-  };
+  if (loading) return <p>Loading...</p>;
 
   return (
-    <div className="payment-status-container">
+    <div>
       <h1>Payment Status</h1>
-      {error ? <p className="error-message">{error}</p> : <p>{status}</p>}
-      <button onClick={handleBackToDashboard}>Back to Dashboard</button>
+      <p>Status: {status}</p>
     </div>
   );
 };
