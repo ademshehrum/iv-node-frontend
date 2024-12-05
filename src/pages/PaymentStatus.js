@@ -17,17 +17,9 @@ const PaymentStatus = () => {
           const paymentData = response.data.data;
           setStatus(paymentData);
 
-          // If payment is completed, fetch new token and redirect
+          // redirect
           if (paymentData.payment_status === "completed") {
-            const tokenResponse = await apiClient.post("/auth/refresh-token");
-            if (tokenResponse.data.success) {
-
-              document.cookie = `authToken=${tokenResponse.data.token}; path=/`;
-
-              setTimeout(() => navigate("/dashboard"), 2000);
-            } else {
-              setError("Failed to refresh token. Please log in again.");
-            }
+            setTimeout(() => navigate("/dashboard"), 2500);
           }
         } else {
           setError(response.data.message || "Failed to fetch payment status.");
