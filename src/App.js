@@ -6,6 +6,7 @@ import Books from "./pages/Books";
 import Wishlist from "./pages/Wishlist";
 import SetPassword from "./pages/SetPassword";
 import Subscription from "./pages/Subscription";
+import PaymentStatus from "./pages/PaymentStatus";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/set-password" element={<SetPassword />} />
         <Route path="/subscription" element={<Subscription />} />
+        <Route path="/payment-status" element={<PaymentStatus />} />
       </Routes>
     </Router>
   );
