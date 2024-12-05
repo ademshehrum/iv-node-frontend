@@ -12,7 +12,7 @@ const PaymentStatus = () => {
   useEffect(() => {
     const fetchPaymentStatus = async () => {
       try {
-        const response = await apiClient.get(`/subscription/status?refNo=${refNo}`);
+        const response = await apiClient.get(`/payment/status?refNo=${refNo}`);
         if (response.data.success) {
           setStatus(response.data.data.payment_status);
         } else {
