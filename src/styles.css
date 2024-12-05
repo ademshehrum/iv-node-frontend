@@ -1,0 +1,213 @@
+/* General body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Landing page styles */
+.landing-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 350px;
+  text-align: center;
+}
+
+.card h2 {
+  margin-bottom: 20px;
+  color: #6200ea;
+}
+
+.card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.card input {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.card button {
+  padding: 10px;
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.card button:hover {
+  background-color: #3700b3;
+}
+
+.toggle-button {
+  background: none;
+  color: #6200ea;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.toggle-button:hover {
+  text-decoration: underline;
+}
+
+.toggle-text {
+  color: #6200ea;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.toggle-text:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.container h1 {
+  color: #6200ea;
+}
+
+.container p {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.actions button {
+  padding: 10px 15px;
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.actions button:hover {
+  background-color: #3700b3;
+}
+
+.actions button {
+  padding: 10px 15px;
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.actions button:hover {
+  background-color: #3700b3;
+}
+
+.actions button.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.actions button.disabled:hover {
+  background-color: #ccc;
+  text-decoration: none;
+}
+
+.logout {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.logout span {
+  color: #6200ea;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.logout span:hover {
+  text-decoration: underline;
+}
+
+.logout-icon {
+  margin-right: 5px;
+}
+
+.books-page {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.books-page h1 {
+  color: #6200ea;
+  margin-bottom: 20px;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 0;
+}
+
+.book-tile {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.book-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.book-title {
+  font-size: 18px;
+  color: #333;
+  margin: 10px 0 5px;
+}
+
+.book-description {
+  font-size: 14px;
+  color: #666;
+}
